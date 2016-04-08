@@ -1,32 +1,27 @@
 'use strict'
 
-var fs = require('fs')
-var path = require('path')
+import fs from 'fs'
+import path from 'path'
 
-var expect = require('chai').expect
-var postcss = require('postcss')
+import { expect } from 'chai'
+import postcss from 'postcss'
 
-var themePlugin = require('../index')
+import themePlugin from '../index'
 
-var CSS_INPUT_FILE = __dirname + '/css/test.css'
+const CSS_INPUT_FILE = path.join(__dirname, 'css/test.css')
 
 function normalizeString (string) {
-  return string
-    .split('\n')
-    .map(function (line) {
-      return line.trim()
-    })
-    .join('')
+  return string.split('\n').map(line => line.trim()).join('')
 }
 
 function realpath (filePath) {
   return fs.realpathSync(path.join(__dirname, filePath))
 }
 
-describe('postcss-theme', function () {
+describe('postcss-theme', () => {
   let cssOutput
 
-  it('runs successfully', function () {
+  it('runs successfully', () => {
     return postcss([
       themePlugin({
         themePath: __dirname + '/css/themes/default'
