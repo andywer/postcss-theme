@@ -1,0 +1,20 @@
+{
+  "name": "postcss-theme",
+  "version": "1.0.0",
+  "description": "PostCSS plugin to enable versatile theming.",
+  "registry": "npm",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard index.js && mocha ./test/**/*.spec.js"
+  },
+  "author": "Andy Wermke <andy@dev.next-step-software.com>",
+  "license": "MIT",
+  "dependencies": {
+    "postcss": "^5.0.19",
+    "postcss-value-parser": "^3.3.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}

@@ -1,0 +1,10 @@
+@value black, white from theme(colors);
+
+.test-1 {
+  composes: no-borders from theme(base-styles);
+  color: black;
+}
+
+.test-2 {
+  color: white;
+}
