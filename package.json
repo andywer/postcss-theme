@@ -5,6 +5,7 @@
   "registry": "npm",
   "main": "index.js",
   "scripts": {
+    "prepush": "npm test",
     "test": "standard index.js && mocha ./test/**/*.spec.js"
   },
   "author": "Andy Wermke <andy@dev.next-step-software.com>",
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "husky": "^0.11.4",
     "mocha": "^2.4.5",
     "standard": "^6.0.8"
   },
