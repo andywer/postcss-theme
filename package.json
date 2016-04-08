@@ -15,6 +15,14 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "standard": "^6.0.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andywer/postcss-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andywer/postcss-theme/issues"
   }
 }
