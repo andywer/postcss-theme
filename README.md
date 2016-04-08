@@ -1,4 +1,6 @@
-# postcss-theme - Proper theming for your PostCSS stack / css modules
+# postcss-theme - Proper theming for PostCSS
+[![Build Status](https://travis-ci.org/andywer/postcss-theme.svg?branch=master)](https://travis-ci.org/andywer/postcss-theme)
+[![NPM Version](https://img.shields.io/npm/v/postcss-theme.svg)](https://www.npmjs.com/package/postcss-theme)
 
 Super lightweight, straight-forward and written with performance in mind.
 Can be used with Webpack, JSPM/System.js or anywhere else where you use
