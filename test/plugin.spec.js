@@ -11,7 +11,12 @@ var themePlugin = require('../index')
 var CSS_INPUT_FILE = __dirname + '/css/test.css'
 
 function normalizeString (string) {
-  return string.split('\n').map(line => line.trim()).join('')
+  return string
+    .split('\n')
+    .map(function (line) {
+      return line.trim()
+    })
+    .join('')
 }
 
 function realpath (filePath) {
