@@ -14,6 +14,10 @@ function normalizeString (string) {
   return string.split('\n').map(line => line.trim()).join('')
 }
 
+function realpath (filePath) {
+  return fs.realpathSync(path.join(__dirname, filePath))
+}
+
 describe('postcss-theme', function () {
   let cssOutput
 
@@ -31,10 +35,10 @@ describe('postcss-theme', function () {
 
   it('produces the expected output', () => {
     expect(normalizeString(cssOutput)).to.equal(normalizeString(`
-      @value black, white from "/Users/andy/workspace/postcss-theme/test/css/themes/default/colors.css";
+      @value black, white from "${realpath('./css/themes/default/colors.css')}";
 
       .test-1 {
-        composes: no-borders from "/Users/andy/workspace/postcss-theme/test/css/themes/default/base-styles.css";
+        composes: no-borders from "${realpath('./css/themes/default/base-styles.css')}";
         color: black;
       }
 
