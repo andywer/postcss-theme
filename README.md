@@ -157,6 +157,17 @@ postcss([
 ```
 
 
+## Changelog
+
+### Version 1.0.1
+
+Windows fix. See [this issue](https://github.com/andywer/postcss-theme/issues/1).
+
+### Version 1.0.0
+
+Initial release.
+
+
 ## License
 
 This plugin is released under the terms of the MIT license. See [LICENSE](https://github.com/andywer/postcss-theme/blob/master/LICENSE) for details.
