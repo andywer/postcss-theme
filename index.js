@@ -28,7 +28,12 @@ module.exports = postcss.plugin('postcss-theme', function (options) {
       themeFilePath += '.css'
     }
 
-    return path.join(options.themePath, themeFilePath)
+    var themeFile = path.join(options.themePath, themeFilePath)
+    // windows support: need to use /, not \
+    if (path.sep !== '/') {
+      themeFile = themeFile.split(path.sep).join('/')
+    }
+    return themeFile;
   }
 
   return function (css) {
