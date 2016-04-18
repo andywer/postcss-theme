@@ -1,6 +1,5 @@
 'use strict'
 
-var path = require('path')
 var postcss = require('postcss')
 var valueParser = require('postcss-value-parser')
 
@@ -19,6 +18,12 @@ function transform (value, themeFileResolver) {
   }, true).toString()
 }
 
+// Like path.join(), but will always use '/' as separator, even on Windows.
+// See https://github.com/andywer/postcss-theme/issues/1
+function joinPaths (path1, path2) {
+  return path1 + (path1.match(/\/$/) ? '' : '/') + path2
+}
+
 /**
  * @param {object} options { themePath: String }
  */
@@ -28,7 +33,7 @@ module.exports = postcss.plugin('postcss-theme', function (options) {
       themeFilePath += '.css'
     }
 
-    return path.join(options.themePath, themeFilePath)
+    return joinPaths(options.themePath, themeFilePath)
   }
 
   return function (css) {
