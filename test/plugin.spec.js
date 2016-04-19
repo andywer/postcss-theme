@@ -47,4 +47,22 @@ describe('postcss-theme', () => {
       }
     `))
   })
+
+  it('uses a given themeFileResolver method', () => {
+    function themeFileResolver (themeFilePath, options, defaultResolver) {
+      const themePath = __dirname + '/css/themes/default'
+      return defaultResolver(themeFilePath + options.suffix, { themePath })
+    }
+
+    return postcss([
+      themePlugin({ themeFileResolver, suffix: '-test' })
+    ])
+    .process(fs.readFileSync(CSS_INPUT_FILE), { from: CSS_INPUT_FILE, to: path.basename(CSS_INPUT_FILE) })
+    .then(function (result) {
+      const firstOutputLine = result.css.split('\n')[ 0 ]
+      const expectedPath = realpath('./css/themes/default') + '/colors-test.css'
+
+      expect(firstOutputLine).to.equal(`@value black, white from "${expectedPath}";`)
+    })
+  })
 })
