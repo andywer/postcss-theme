@@ -159,6 +159,10 @@ postcss([
 
 ## Changelog
 
+### Version 1.1.0
+
+Allow passing a custom file path resolver function (`options.themeFileResolver`).
+
 ### Version 1.0.1
 
 Windows fix. See [this issue](https://github.com/andywer/postcss-theme/issues/1).

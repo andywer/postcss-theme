@@ -1,6 +1,6 @@
 {
   "name": "postcss-theme",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "PostCSS plugin to enable versatile theming.",
   "keywords": [ "postcss", "theming", "theme", "plugin" ],
   "registry": "npm",
