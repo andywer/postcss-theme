@@ -58,13 +58,13 @@ function defaultThemeFileResolver (themeFilePath, options) {
 module.exports = postcss.plugin('postcss-theme', function (options) {
   options = options || {}
 
-  // proxy the resolver call, bind the 2nd and 3rd parameter
-  var themeFileResolver = function (themeFilePath) {
-    var resolver = options.themeFileResolver || defaultThemeFileResolver
-    return resolver(themeFilePath, options, defaultThemeFileResolver)
-  }
-
   return function (css) {
+    // proxy the resolver call, bind the 2nd and 3rd parameter
+    var themeFileResolver = function (themeFilePath) {
+      var resolver = options.themeFileResolver || defaultThemeFileResolver
+      return resolver(themeFilePath, options, defaultThemeFileResolver, css.source)
+    }
+
     css.walk(function (node) {
       if (node.type === 'decl') {
         node.value = transform(node.value, themeFileResolver)

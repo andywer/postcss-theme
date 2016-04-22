@@ -49,7 +49,9 @@ describe('postcss-theme', () => {
   })
 
   it('uses a given themeFileResolver method', () => {
-    function themeFileResolver (themeFilePath, options, defaultResolver) {
+    function themeFileResolver (themeFilePath, options, defaultResolver, source) {
+      expect(source.input.file).to.equal(CSS_INPUT_FILE)
+
       const themePath = __dirname + '/css/themes/default'
       return defaultResolver(themeFilePath + options.suffix, { themePath })
     }
