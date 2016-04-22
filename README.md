@@ -159,6 +159,10 @@ postcss([
 
 ## Changelog
 
+### Version 1.1.1
+
+Pass `css.source` to custom file path resolvers.
+
 ### Version 1.1.0
 
 Allow passing a custom file path resolver function (`options.themeFileResolver`).
